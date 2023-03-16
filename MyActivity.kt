@@ -23,7 +23,9 @@ private fun requestPermission(){
     }.show()
 }
   
-
+/*
+  Draw overlayView using Service..
+*/
 fun startDrawOverlayViewService(){
   if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ){
       if(Settings.canDrawOverlays(applicationContext)){
