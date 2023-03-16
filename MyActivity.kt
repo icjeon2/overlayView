@@ -22,3 +22,19 @@ private fun requestPermission(){
 
     }.show()
 }
+  
+
+fun startDrawOverlayViewService(){
+  if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ){
+      if(Settings.canDrawOverlays(applicationContext)){
+          val mIntent = Intent(applicationContext, DrawOverlayViewService::class.java)
+
+          if(applicationContext.isRunning<DrawOverlayViewService>()) return
+
+          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+              startForegroundService(mIntent)
+          else
+              startService(mIntent)
+      }
+  }
+}
